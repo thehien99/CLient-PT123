@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Pagenumber from "../PageNumber/pagenumber";
+import Pagenumber from "../PageNumber/Pagenumber";
 import icons from "../../utils/icons";
 import { useSearchParams } from "react-router-dom";
 

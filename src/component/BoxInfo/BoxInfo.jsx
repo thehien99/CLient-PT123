@@ -1,7 +1,6 @@
 import React from "react";
 import avatar from "../../assets/img/userAvatar/user.jpg"
 import icons from "../../utils/icons";
-import { Link } from "react-router-dom";
 const { BsDot, BsFillTelephoneFill, SiZalo } = icons
 
 const BoxInfo = ({ userData: { name, phone, zalo } }) => {

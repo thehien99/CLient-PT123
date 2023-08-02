@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editPost, getPostAdminLimit } from "../../redux/actions/postActions";
 import ButtonFrom from "../InputForm/ButtonFrom";
-import UpdatePost from "../UpdatePost/updatePost";
+import UpdatePost from "../UpdatePost/UpdatePost";
 import { deletePost } from "../../service/Post/post";
 import Swal from "sweetalert2";
 import { checkDateTime } from "../../utils/checkExpireTime";

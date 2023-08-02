@@ -1,6 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import Item from "../Item/Item";
-import Pagination from "../Pagination/pagination";
+import Pagination from "../Pagination/Pagination";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { postLimit } from "../../redux/actions/postActions";

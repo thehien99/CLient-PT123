@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import configRouter from "./configRouter";
-import Home from "./component/page/Home/home";
+import Home from "./component/page/Home/Home";
 import HomePage from "./component/page/HomePage/HomePage";
 import Login from "./component/page/Login/Login";
 import ProductDetail from "./component/page/Product/ProductDetail";

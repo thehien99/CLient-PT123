@@ -1,5 +1,6 @@
 const configRouter = {
   home: "/*",
+  home__page: ":page",
   login: "login",
   userManager: "Manager",
   chothuecanho: "cho-thue-can-ho",

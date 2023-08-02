@@ -10,7 +10,8 @@ const Modal = ({
   handleSubmitModal,
   queries,
   arrMinMax,
-  defaultText
+  defaultText,
+  header
 }) => {
   const [min, setMin] = useState(
     name === "price" && arrMinMax?.priceArr
@@ -104,26 +105,28 @@ const Modal = ({
   }
   return (
     <div onClick={(e) => { setIsShowModal(false) }}
-      className="fixed z-20 bg-overlay-30 top-0 left-0 right-0 bottom-0 flex justify-center items-center "
+      className="fixed z-10 bg-overlay-30 top-0 left-0 right-0 bottom-0 flex justify-center items-center "
     >
       <div onClick={(e) => {
         e.stopPropagation()
         setIsShowModal(true)
       }}
         className="w-2/3 bg-white rounded-md overflow-y-auto" >
-        <div className="h-[45px] px-4 flex items-center border-b border-gray-200">
+        <div className="h-[45px] w-full px-4 flex justify-center items-center border-b border-gray-200">
           <span className="cursor-pointer"
             onClick={(e) => {
               e.stopPropagation()
               setIsShowModal(false)
             }}>
-            <GrLinkPrevious />
           </span>
+          <div className="font-bold">
+            {header}
+          </div>
           <hr />
         </div>
         {(name === "category" || name === "province") && (
-          <div className="flex flex-col ps-2">
-            <span className="p-2 cursor-pointer " style={{ borderBottom: "1px solid #ccc" }}>
+          <div className={`flex flex-col ps-2 ${name === "province" && 'h-[500px] overflow-y-scroll'} `}>
+            <span className="p-2 cursor-pointer" style={{ borderBottom: "1px solid #ccc" }}>
               <input
                 type="radio"
                 name={name}
@@ -150,7 +153,7 @@ const Modal = ({
           </div>
         )}
         {(name === "price" || name === "area") && (
-          <div className=" flex flex-col">
+          <div className=" flex flex-col overflow-x-hidden">
             <div className="p-12 py-20 ">
               <div >
                 <h2 className="text-center mb-5">
@@ -215,14 +218,14 @@ const Modal = ({
               </div>
             </div>
             <h5 className="ms-4">Chọn Nhanh</h5>
-            <div className="flex gap-4 items-center flex-wrap w-full ms-4 mt-4 ">
+            <div className="flex items-center flex-wrap w-full gap-3 mt-4 p-2 ">
               {
                 content?.map((item) => {
                   return (
                     <button
                       key={item.code}
                       onClick={() => handleActive(item.code, item.value)}
-                      className={`text - black bg - gray - 300 p - 3 rounded - md cursor - pointer ${item.code === activeEl ? "bg-blue-400" : ""} `}>
+                      className={`text-black bg-gray-300 p-3 rounded-md cursor-pointer ${item.code === activeEl ? "bg-blue-400" : ""} `}>
                       {item.value}
                     </button>
                   )

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import ButtonFrom from "../../InputForm/ButtonFrom";
@@ -17,7 +17,7 @@ const Header = () => {
   const goLogin = useCallback((flag) => {
     navigate(configRouter.login, { state: { flag } })
   }, [])
-
+  
   return (
     <div className="container h-16 ">
       <div className="flex justify-around align-items-center h-14">

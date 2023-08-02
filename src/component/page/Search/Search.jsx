@@ -19,6 +19,7 @@ const {
 const Search = () => {
    const [isShowModal, setIsShowModal] = useState(false)
    const [content, setContent] = useState([])
+   const [header, setHeader] = useState('')
    const [name, setName] = useState('')
    const [defaultText, setDefauText] = useState('')
    const [queries, setQueries] = useState({})
@@ -44,11 +45,12 @@ const Search = () => {
       arrMaxMin && setArrMinMax(prev => ({ ...prev, ...arrMaxMin }))
    }, [queries, isShowModal])
 
-   const handleIsShowModal = (content, name, defaultText) => {
+   const handleIsShowModal = (content, name, defaultText, header) => {
       setDefauText(defaultText)
       setContent(content)
       setName(name)
       setIsShowModal(true)
+      setHeader(header)
    }
 
    const handleSearch = () => {
@@ -71,7 +73,7 @@ const Search = () => {
    return (
       <>
          <div className="container my-3 bg-[#febb02] rounded-lg  flex items-center justify-evenly cursor-pointer ">
-            <span className="w-full" onClick={() => handleIsShowModal(dataHome, 'category', 'Tìm tất cả')}>
+            <span className="w-full" onClick={() => handleIsShowModal(dataHome, 'category', 'Tìm tất cả', 'Tìm tất cả')}>
                <SearchItem
                   text={queries.category}
                   iconAfter={<MdOutlineMapsHomeWork />}
@@ -79,7 +81,7 @@ const Search = () => {
                   defaultText="Tìm tất cả"
                />
             </span>
-            <span className="w-full" onClick={() => handleIsShowModal(dataProVince, 'province', 'Toàn quốc')}>
+            <span className="w-full" onClick={() => handleIsShowModal(dataProVince, 'province', 'Toàn quốc', 'Chọn tỉnh thành')}>
                <SearchItem
                   text={queries.province}
                   iconAfter={<ImLocation />}
@@ -87,7 +89,7 @@ const Search = () => {
                   defaultText="Toàn quốc"
                />
             </span>
-            <span className="w-full" onClick={() => handleIsShowModal(Price, "price", "Chọn Giá")}>
+            <span className="w-full" onClick={() => handleIsShowModal(Price, "price", "Chọn Giá", 'Chọn Giá')}>
                <SearchItem
                   text={queries.price}
                   iconbefore={<GrFormNext />}
@@ -95,7 +97,7 @@ const Search = () => {
                   defaultText="Chọn Giá"
                />
             </span>
-            <span className="w-full" onClick={() => handleIsShowModal(Acrea, "area", "Chọn Diện Tích")}>
+            <span className="w-full" onClick={() => handleIsShowModal(Acrea, "area", "Chọn Diện Tích", "Chọn Diện Tích")}>
                <SearchItem
                   text={queries.area}
                   iconAfter={<RiCrop2Line />}
@@ -119,6 +121,7 @@ const Search = () => {
             setIsShowModal={setIsShowModal}
             handleSubmitModal={handleSubmitModal}
             defaultText={defaultText}
+            header={header}
          />
          }
       </>

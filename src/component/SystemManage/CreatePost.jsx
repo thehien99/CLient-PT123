@@ -13,6 +13,8 @@ import { createPost, updatePost } from "../../service/Post/post";
 import { clearEditPost } from "../../redux/actions/postActions";
 import Map from "../Map/Map";
 
+
+
 const { FcCamera, RiDeleteBin5Line } = icons
 
 const CreatePost = ({ isEdit }) => {
@@ -79,7 +81,7 @@ const CreatePost = ({ isEdit }) => {
       userID: currentUser.id,
       priceNumber: +payload.priceNumber / Math.pow(10, 6),
       target: payload.target || 'Tất cả',
-      label: `${cateData?.find(item => item?.code === payload?.categoryCode)?.value} ${(payload?.address).split(",", 3).slice(1, 3).toString()}`,
+      label: `${cateData?.find(item => item?.code === payload?.categoryCode)?.value}${(payload?.address).split(",", 3).slice(1, 2).toString()}`,
       categoryValue: cateData?.find(item => item?.code === payload?.categoryCode)?.value
     }
     const result = validate(finalPayload, setInValids)
@@ -129,7 +131,8 @@ const CreatePost = ({ isEdit }) => {
       description: "",
       target: "",
       province: "",
-    })
+    }),
+      setViewImage([])
   }
   return (
     <div className="ms-2 overflow-y-hidden">

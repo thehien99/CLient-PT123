@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef, useEffect } from "react"
 import Header from "../../component/Layout/header/Header"
 import Footer from "../../component/Layout/footer/Footer"
 import Navigation from "./Navigation/Navigation"
@@ -7,9 +7,13 @@ import Search from "../page/Search/Search"
 import { useSelector } from "react-redux"
 const Layout = () => {
   const isLogin = useSelector(state => state.auth.isLogin)
+  const listScrollRef = useRef()
   const location = useLocation()
+  useEffect(() => {
+    listScrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }, [location])
   return (
-    <>
+    <div ref={listScrollRef}>
       <div className="home relative">
         <div className="header relative">
           <Header />
@@ -23,7 +27,7 @@ const Layout = () => {
           <Footer />
         </div>
       </div>
-    </>
+    </div>
   )
 }
 export default Layout

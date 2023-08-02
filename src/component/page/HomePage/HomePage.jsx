@@ -1,16 +1,20 @@
-import React, { useEffect } from "react";
+import React from "react";
 import List from "../../../component/ListProduct/List";
 import ItemSideBar from "../../ItemSideBar/ItemSideBar";
 import { useSelector } from "react-redux";
 import NewPost from "../../NewPost/NewPost";
+import Search from "../Search/Search";
 
 const HomePage = () => {
   const dataHome = useSelector((state) => state.category.categoryData.response)
   const Price = useSelector((state) => state.price.dataPrice)
   const Acrea = useSelector((state) => state.acrea.data)
+  const isLogin = useSelector(state => state.auth.isLogin)
+
   return (
     <div>
       <div className="container">
+        {!isLogin && <Search />}
         <div className="row">
           <div className="list_product col-8">
             <List />

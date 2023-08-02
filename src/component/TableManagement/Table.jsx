@@ -30,7 +30,7 @@ const Table = ({ post, table }) => {
   }
   return (
     <div>
-      <table className="w-full h-full">
+      <table className="w-full h-full overflow-y-scroll scroll-smooth">
         <tr className="flex items-center h-16">
           {table?.map((item) => {
             return (
@@ -40,19 +40,19 @@ const Table = ({ post, table }) => {
         </tr>
         {post?.map((item) => {
           return (
-            <tr className="flex items-center h-16 bg-white" key={item.id}>
-              <td className="border flex-1 h-full flex justify-center items-center">#{item?.overviews?.code}</td>
-              <td className="border flex-1 h-full flex justify-center items-center">
+            <tr className="flex items-center w-full h-16 bg-white p-0" key={item.id}>
+              <td className="border flex-1 h-full flex justify-center items-center p-0">{item?.overviews?.code}</td>
+              <td className="border flex-1 h-full flex justify-center items-center p-0">
                 <img src={JSON.parse(item?.images?.image)[0] || ""} alt="" className="w-[60px] rounded-md object-cover " />
               </td>
-              <td className="border flex-1 h-full flex justify-center items-center">{`${item?.title.slice(0, 20)}...`}</td>
-              <td className="border flex-1 h-full flex justify-center items-center">{item?.attributes?.price}</td>
-              <td className="border flex-1 h-full flex justify-center items-center">{item?.overviews?.created}</td>
-              <td className="border flex-1 h-full flex justify-center items-center">{item?.overviews?.expired}</td>
-              <td className="border flex-1 h-full flex justify-center items-center">
+              <td className="border flex-1 h-full flex justify-center items-center p-0">{`${item?.title.slice(0, 20)}...`}</td>
+              <td className="border flex-1 h-full flex justify-center items-center p-0">{item?.attributes?.price}</td>
+              <td className="border flex-1 h-full flex justify-center items-center p-0">{item?.overviews?.created}</td>
+              <td className="border flex-1 h-full flex justify-center items-center p-0">{item?.overviews?.expired}</td>
+              <td className="border flex-1 h-full flex justify-center items-center p-0">
                 {checkDateTime(item?.overviews?.expired?.split(",")[2]) ? "Đang hoạt động" : "Đã hết hạn"}
               </td>
-              <td className="border flex-1 h-full flex justify-center items-center ">
+              <td className="border flex-1 h-full flex justify-center items-center p-0 ">
                 <ButtonFrom
                   text="Sửa" px="px-2" bgColor="bg-primary" textColor="text-white" magrin="me-2"
                   onClick={() => {

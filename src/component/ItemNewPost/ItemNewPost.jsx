@@ -9,8 +9,10 @@ const ItemNewPost = ({ title, time, price, image, id }) => {
   const formatTime = (time) => {
     return moment(time).fromNow()
   }
+
+
   return (
-    <Link to={`${configRouter.detail}/${formatVietnameseToString(title.replaceAll("/", ""))}/${id}`}
+    <Link to={`/${configRouter.detail}/${formatVietnameseToString(title.replaceAll("/", ""))}/${id}`}
       className=" w-full flex items-center gap-2 py-2 border-b border-gray-300 no-underline">
       <img
         className="w-[65px] h-[65px] object-cover flex-none rounded-md"

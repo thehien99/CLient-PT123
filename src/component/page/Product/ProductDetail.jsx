@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { postLimit } from "../../../redux/actions/postActions";
 import { useDispatch, useSelector } from "react-redux";
@@ -26,6 +26,8 @@ const ProductDetail = () => {
   useEffect(() => {
     postId && dispatch(postLimit({ id: postId }))
   }, [postId])
+
+  console.log(post)
 
   const handleParamsLabel = () => {
     const titleTextSearch = `Tìm kiếm tin đăng cho chuyên mục ${post[0]?.labels?.value}`
@@ -89,7 +91,7 @@ const ProductDetail = () => {
             <div>
               <h4>Thông tin mô tả:</h4>
               <div className="mt-2 p-2 flex flex-col gap-2">
-                {post?.length > 0 && ((JSON.parse(post[0]?.description)))?.map((item) => {
+                {post?.length > 0 && (JSON.parse(post[0]?.description))?.map((item) => {
                   return (
                     <span>{item}</span>
                   )

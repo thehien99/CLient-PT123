@@ -12,6 +12,17 @@ export default {
         "1100": "1100px"
       }
     },
+    screens: {
+      'xs': '480px',
+      'tablet': '640px',
+      // => @media (min-width: 640px) { ... }
+
+      'laptop': '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      'desktop': '1536px',
+      // => @media (min-width: 1536px) { ... }
+    },
   },
   plugins: [],
 };

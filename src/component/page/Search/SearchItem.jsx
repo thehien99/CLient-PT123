@@ -7,7 +7,7 @@ const SearchItem = ({ iconAfter, iconbefore, text, defaultText }) => {
     >
       <div className="search_items d-flex justify-center align-items-center">
         {iconAfter}
-        <span className={`${text ? 'text-black font-medium' : ''}`} >
+        <span className={`${text ? 'text-black font-medium' : ''} `} >
           {text || defaultText}
         </span>
       </div>

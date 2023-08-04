@@ -4,7 +4,9 @@ const ButtonFrom = ({ onClick, text, textColor, bgColor, px, IcAfter, magrin, fu
   return (
     <button
       type="button"
-      className={`py-2 ${textColor} ${bgColor} ${px} ${magrin} ${fullWidth && "w-full"}  outline-none rounded-md hover:underline flex items-center justify-center gap-1`}
+      className={`
+      py-2 ${textColor} ${bgColor} ${px} ${magrin} ${fullWidth && "w-full"} 
+      outline-none rounded-md hover:underline flex items-center justify-center gap-1`}
       onClick={onClick}
     >
       <span>{text}</span>

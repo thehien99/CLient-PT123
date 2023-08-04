@@ -22,8 +22,8 @@ const Navigation = ({ isAdmin }) => {
   window.addEventListener("scroll", navigationFixed)
 
   return (
-    <div className={fixed ? fixedNav : ""} >
-      <div className={`navigation-wrapper d-flex bg-primary ${isAdmin ? 'justify-start' : 'justify-center'}`}>
+    <div className={`${fixed ? fixedNav : ""} navigation-wrapper `} >
+      <div className={` d-flex bg-primary ${isAdmin ? 'justify-start' : 'justify-center'}`}>
         <div className='p-3'>
           <NavLink
             className={({ isActive, isPending }) =>

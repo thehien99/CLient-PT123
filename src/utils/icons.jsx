@@ -4,6 +4,8 @@ import { BiUserPin } from "react-icons/bi"
 import { GrFormNext, GrMoney, GrSearch, GrStar, GrLinkPrevious } from "react-icons/gr";
 import { RiCrop2Line, RiDeleteBack2Line, RiDeleteBin5Line } from "react-icons/ri";
 import {
+  AiOutlineClose,
+  AiOutlineMenu,
   AiOutlineHeart,
   AiFillHeart,
   AiOutlineDoubleRight,
@@ -45,7 +47,9 @@ const icons = {
   CiHashtag,
   BsDot,
   BsFillTelephoneFill,
-  SiZalo
+  SiZalo,
+  AiOutlineMenu,
+  AiOutlineClose
 };
 
 export default icons;

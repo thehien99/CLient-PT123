@@ -15,7 +15,7 @@ const Layout = () => {
   return (
     <div ref={listScrollRef}>
       <div className="home relative">
-        <div className="header relative">
+        <div className="relative">
           <Header />
           <Navigation />
           {isLogin && location.pathname !== '/lien-he' && !location.pathname?.includes("/chi-tiet") && <Search />}

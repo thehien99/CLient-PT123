@@ -45,30 +45,3 @@ button.slick-next {
     height: 50px;
     border-radius: 100%;
 }
-
-
-
-@media screen and (max-width: 480px) {
-    .header {
-        display: none;
-    }
-
-    .header-mobile {
-        display: block;
-        right: 10px;
-        top: 15px;
-        position: absolute;
-        z-index: 20;
-
-    }
-}
-
-@media screen and (min-width: 481px) and (max-width:786px) {
-    .header-mobile {
-        display: none;
-    }
-
-    .header {
-        display: block;
-    }
-}

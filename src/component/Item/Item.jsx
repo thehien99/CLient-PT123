@@ -19,8 +19,7 @@ const Item = ({ image, title, star, address, description, attributes, sellers, i
       <Link
         to={`/${configRouter.detail}/${formatVietnameseToString(title.replaceAll("/", ""))}/${id}`}
         className="relative col-5 d-flex flex-wrap h-[266px]">
-        {
-          image.length > 0 && image.filter((i, index) => indexs.some(i => i === index))?.map((i, index) => {
+        {image.length > 0 && image.filter((i, index) => indexs.some(i => i === index))?.map((i, index) => {
             return (
               <img key={index} src={i} alt="/" className="rounded-md object-cover my-1 mx-1 w-full h-full" />
             )

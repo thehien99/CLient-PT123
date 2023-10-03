@@ -19,9 +19,8 @@ const Pagination = ({ count, post }) => {
 
   useEffect(() => {
     const maxPage = Math.ceil(count / limit);
-    const end = (currentPage + 1) > maxPage ? maxPage : (currentPage + 1)
-
     const start = (currentPage - 1) <= 0 ? 1 : (currentPage - 1);
+    const end = (currentPage + 1) > maxPage ? maxPage : (currentPage + 1)
     const temp = []
     for (let i = start; i <= end; i++) temp.push(i)
     setArrPage(temp)
@@ -30,7 +29,6 @@ const Pagination = ({ count, post }) => {
     currentPage <= 2 ? setIsHideStart(true) : setIsHideStart(false)
 
   }, [count, post, currentPage]);
-
   return (
     <div className="flex justify-content-center p-4 gap-1 ">
       {!isHideStart && <Pagenumber icon={<AiOutlineDoubleLeft />} setCurrentPage={setCurrentPage} text={1} />}

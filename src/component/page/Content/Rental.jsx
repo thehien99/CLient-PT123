@@ -8,9 +8,8 @@ import { formatVietnameseToString } from "../../../utils/formatVietnameseToStrin
 
 
 const Rental = () => {
-  const dataPrice = useSelector((state) => state.price.dataPrice.data)
-
-  const dataAcrea = useSelector((state) => state.acrea.data.data)
+  const Price = useSelector((state) => state.price.dataPrice)
+  const Acrea = useSelector((state) => state.acrea.data)
 
   const cateData = useSelector((state) => state.category.categoryData.response)
 
@@ -35,12 +34,12 @@ const Rental = () => {
           <div className="sidebar col-4" style={{ borderStyle: "dotted" }}>
             <ItemSideBar
               tilte='Xem theo giá'
-              content={dataPrice}
+              content={Price}
               isDouble={true}
               type='priceCode' />
             <ItemSideBar
               tilte='Xem theo diện tích'
-              content={dataAcrea}
+              content={Acrea}
               isDouble={true}
               type='areaCode' />
             <NewPost />

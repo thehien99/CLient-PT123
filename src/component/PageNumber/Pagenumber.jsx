@@ -8,7 +8,6 @@ const Pagenumber = ({ text, currentNumber, icon, setCurrentPage }) => {
   const location = useLocation();
   const [searchParams] = useSearchParams()
   let entries = searchParams.entries()
-
   const append = (entries) => {
     let params = []
     searchParams.append('page', +text)
@@ -17,10 +16,12 @@ const Pagenumber = ({ text, currentNumber, icon, setCurrentPage }) => {
     }
     let paramsObject = {}
     params?.forEach(i => {
+      console.log(Object.keys(paramsObject)?.some(item => item === i[0] && item !== 'page'))
       if (Object.keys(paramsObject)?.some(item => item === i[0] && item !== 'page')) {
         paramsObject[i[0]] = [...paramsObject[i[0]], i[1]]
       } else {
         paramsObject = { ...paramsObject, [i[0]]: [i[1]] }
+        console.log("b", { ...paramsObject, [i[0]]: [i[1]] })
       }
     })
     return paramsObject
@@ -36,7 +37,12 @@ const Pagenumber = ({ text, currentNumber, icon, setCurrentPage }) => {
   };
   return (
     <div
-      className={+text === +currentNumber ? ` ${"pageNumber"} ${icon === '...' ? 'cursor-text' : 'cursor-auto'}` : `${"notPage"} ${icon === '...' ? 'cursor-text' : 'cursor-pointer'}`}
+      className={+text === +currentNumber
+        ? `${"pageNumber"} ${icon === '...'
+          ? 'cursor-text' : 'cursor-auto'}`
+        : `${"notPage"} ${icon === '...'
+          ? 'cursor-text'
+          : 'cursor-pointer'}`}
       onClick={handleChangeNumber}
     >
       {icon || text}

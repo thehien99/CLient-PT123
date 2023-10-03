@@ -8,19 +8,16 @@ import CurrentUser from "./CurrentUser";
 import menuManage from "../../../utils/menuManage";
 import icons from "../../../utils/icons";
 
-const { AiOutlineLogout, BsChevronDown, AiOutlinePlusCircle, AiOutlineMenu, AiOutlineClose } = icons
+const { AiOutlineLogout, BsChevronDown, AiOutlinePlusCircle } = icons
 const Header = () => {
   const [isShowMenu, setIsShowMenu] = useState(false)
-  const [headerMobile, setHeaderMobile] = useState(false)
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const isLogin = useSelector(state => state.auth.isLogin)
   const goLogin = useCallback((flag) => {
     navigate(configRouter.login, { state: { flag } })
   }, [])
-  const handleHeaderMobile = () => {
-    setHeaderMobile(!headerMobile)
-  }
+
   return (
     <div className="container h-16 ">
       <div className="header">
@@ -97,73 +94,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-
-      {/* ----mobile---- */
-        <div className="header-mobile" onClick={handleHeaderMobile}>
-          {headerMobile ? <AiOutlineClose fontSize={30} /> : <AiOutlineMenu fontSize={30} />}
-          {headerMobile &&
-            <div className="text-[8px] absolute z-10 right-2 mt-2">
-              {!isLogin && (
-                <div className="flex flex-col gap-2">
-                  <ButtonFrom
-                    text={'Đăng nhập'}
-                    textColor="text-white"
-                    bgColor="bg-blue-700"
-                    px='px-2'
-                    onClick={() => goLogin(false)}
-                  />
-                  <ButtonFrom
-                    text={'Đăng ký'}
-                    bgColor="bg-red-600"
-                    textColor="text-white"
-                    px='px-2'
-                    onClick={() => goLogin(true)}
-                  />
-                </div>
-              )}
-              {isLogin && (<div className="flex items-center gap-3 relative">
-                <CurrentUser />
-                <ButtonFrom
-                  text={"Quản lý tài khoản"}
-                  textColor="text-white"
-                  bgColor="bg-blue-700"
-                  IcAfter={BsChevronDown}
-                  px="px-2"
-                  onClick={() => setIsShowMenu(prev => !prev)}
-                />
-                {isShowMenu && (
-                  <div className=" absolute top-full bg-slate-100 shadow-md rounded-md p-2 right-0 flex flex-col ">
-                    {menuManage?.map((item) => {
-                      return (
-                        <Link
-                          className="no-underline hover:text-orange-500 flex items-center gap-2 text-blue-400 border-b border-gray-200 py-2"
-                          key={item.id}
-                          to={item.path}
-                        >
-                          {item.icon}
-                          {item.text}
-                        </Link>
-                      )
-                    })}
-                    <span
-                      className="cursor-pointer hover:text-orange-500 text-blue-400 py-2 flex items-center gap-2"
-                      onClick={() => {
-                        setIsShowMenu(false)
-                        dispatch(logOut)
-                      }}>
-                      <AiOutlineLogout />
-                      Đăng Xuất
-                    </span>
-                  </div>
-                )}
-              </div>
-              )}
-            </div>}
-        </div>
-
-      }
     </div>
   )
 };
-
 export default Header;

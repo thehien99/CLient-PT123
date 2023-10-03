@@ -22,12 +22,12 @@ const ProductDetail = () => {
   }
   const { postId } = useParams()
   const post = useSelector(state => state.post?.data?.data?.response?.rows)
+  console.log(post)
   const dispatch = useDispatch()
   useEffect(() => {
     postId && dispatch(postLimit({ id: postId }))
   }, [postId])
 
-  console.log(post)
 
   const handleParamsLabel = () => {
     const titleTextSearch = `Tìm kiếm tin đăng cho chuyên mục ${post[0]?.labels?.value}`

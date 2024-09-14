@@ -13,9 +13,9 @@ const ItemNewPost = ({ title, time, price, image, id }) => {
 
   return (
     <Link to={`/${configRouter.detail}/${formatVietnameseToString(title.replaceAll("/", ""))}/${id}`}
-      className=" w-full flex items-center gap-2 py-2 border-b border-gray-300 no-underline">
+      className=" w-full flex items-center gap-2 py-2 border-b border-gray-300 no-underline md:flex-col">
       <img
-        className="w-[65px] h-[65px] object-cover flex-none rounded-md"
+        className="w-[65px] h-[65px] object-cover flex-none rounded-md md:w-full md:h-full"
         src={image[0]}
         alt="anh"
       />

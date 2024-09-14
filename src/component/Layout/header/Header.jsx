@@ -8,9 +8,10 @@ import CurrentUser from "./CurrentUser";
 import menuManage from "../../../utils/menuManage";
 import icons from "../../../utils/icons";
 
-const { AiOutlineLogout, BsChevronDown, AiOutlinePlusCircle } = icons
+const { AiOutlineLogout, BsChevronDown, AiOutlinePlusCircle, IoMdMenu } = icons
 const Header = () => {
   const [isShowMenu, setIsShowMenu] = useState(false)
+  const [showMenu, setShowMenu] = useState(false)
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const isLogin = useSelector(state => state.auth.isLogin)
@@ -18,6 +19,10 @@ const Header = () => {
     navigate(configRouter.login, { state: { flag } })
   }, [])
 
+  const handleShow = () => {
+    setShowMenu(!showMenu)
+  }
+  console.log(showMenu)
   return (
     <div className="container h-16 ">
       <div className="header">
@@ -25,10 +30,14 @@ const Header = () => {
           <Link to={"/"}>
             <img src="logo" alt="logo" />
           </Link>
-          <div className=" flex items-center gap-2 ">
+          <small>Phongtro123.com xin chào !</small>
+          <div onClick={handleShow} className="xs:block hidden">
+            <IoMdMenu className="text-4xl" />
+          </div>
+
+          <div className={` flex items-center gap-2  ${showMenu ? 'xs:flex' : 'xs:hidden'} xs:absolute xs:top-[35%] xs:flex-col xs:justify-center xs:items-center xs:bg-[#09ebf7] xs:w-full xs:h-full xs:rounded-md  `}>
             {!isLogin && (
-              <div className="flex items-centers gap-2">
-                <small>Phongtro123.com xin chào !</small>
+              <div className="flex items-centers gap-2 xs:w-full xs:px-3 ">
                 <ButtonFrom
                   text={'Đăng nhập'}
                   textColor="text-white"
@@ -82,19 +91,23 @@ const Header = () => {
               )}
             </div>
             )}
-            <ButtonFrom
-              text={"Đăng tin mới"}
-              textColor="text-white"
-              bgColor="bg-red-600"
-              px='px-3'
-              IcAfter={AiOutlinePlusCircle}
-              onClick={() => navigate('/he-thong/tao-moi-bai-dang')}
-            />
+            <div className=" xs:w-full xs:px-3">
+              <ButtonFrom
+                text={"Đăng tin mới"}
+                textColor="text-white"
+                bgColor="bg-red-600"
+                px='px-3'
+                IcAfter={AiOutlinePlusCircle}
+                onClick={() => navigate('/he-thong/tao-moi-bai-dang')}
+              />
+            </div>
 
           </div>
+
+
         </div>
       </div>
-    </div>
+    </div >
   )
 };
 export default Header;

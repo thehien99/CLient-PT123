@@ -70,9 +70,10 @@ const Search = () => {
          search: createSearchParams(convertArrtoObj).toString()
       }, { state: { titleTextSearch } })
    }
+
    return (
       <>
-         <div className="container my-3 bg-[#febb02] rounded-lg  flex items-center justify-evenly cursor-pointer  ">
+         <div className="container my-3 bg-[#febb02] rounded-lg  flex items-center justify-evenly cursor-pointer xs:flex-col  ">
             <span className="w-full" onClick={() => handleIsShowModal(dataHome, 'category', 'Tìm tất cả', 'Tìm tất cả')}>
                <SearchItem
                   text={queries.category}
@@ -102,11 +103,11 @@ const Search = () => {
                   text={queries.area}
                   iconAfter={<RiCrop2Line />}
                   iconbefore={<GrFormNext />}
-                  defaultText="Chọn Diện Tích"
+                  defaultText="Diện tích"
                />
             </span>
             <button
-               className="w-[80%] p-2 bg-[lightskyblue] rounded-md flex justify-center items-center"
+               className="w-[80%] p-2 bg-[lightskyblue] rounded-md flex justify-center items-center  "
                onClick={handleSearch}
             >
                <GrSearch style={{ marginBottom: "2px" }} />

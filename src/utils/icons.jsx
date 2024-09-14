@@ -17,7 +17,10 @@ import { GiMoneyStack } from 'react-icons/gi'
 import { FaCreativeCommonsSampling } from 'react-icons/fa'
 import { CiHashtag } from 'react-icons/ci'
 import { SiZalo } from 'react-icons/si'
+import { IoMdMenu } from "react-icons/io";
+
 const icons = {
+  IoMdMenu,
   MdOutlineMapsHomeWork,
   ImLocation,
   GrFormNext,

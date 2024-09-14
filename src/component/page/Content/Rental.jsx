@@ -26,7 +26,7 @@ const Rental = () => {
     <div className="container">
       <h2 className="mt-5">{categoryCurrent?.header}</h2>
       <span>{categoryCurrent?.subheader}</span>
-      <div className="container">
+      <div className="container md:mt-4">
         <div className="row">
           <div className="list_product col-8">
             <List categoryCode={categoryCode} />

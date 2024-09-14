@@ -103,6 +103,7 @@ const Modal = ({
       }
     )
   }
+
   return (
     <div onClick={(e) => { setIsShowModal(false) }}
       className="fixed z-10 bg-overlay-30 top-0 left-0 right-0 bottom-0 flex justify-center items-center "
@@ -152,6 +153,7 @@ const Modal = ({
             })}
           </div>
         )}
+
         {(name === "price" || name === "area") && (
           <div className=" flex flex-col overflow-x-hidden">
             <div className="p-12 py-20 ">
@@ -218,7 +220,7 @@ const Modal = ({
               </div>
             </div>
             <h5 className="ms-4">Chọn Nhanh</h5>
-            <div className="flex items-center flex-wrap w-full gap-3 mt-4 p-2 ">
+            <div className="flex items-center flex-wrap w-full gap-3 mt-4 p-2 md:justify-center ">
               {
                 content?.map((item) => {
                   return (

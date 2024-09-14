@@ -13,16 +13,23 @@ export default {
       }
     },
     screens: {
-      'xs': '480px',
-      'tablet': '640px',
-      // => @media (min-width: 640px) { ... }
+      '2xl': { 'max': '1535px' },
+      // => @media (max-width: 1535px) { ... }
 
-      'laptop': '1024px',
-      // => @media (min-width: 1024px) { ... }
+      'xl': { 'max': '1279px' },
+      // => @media (max-width: 1279px) { ... }
 
-      'desktop': '1536px',
-      // => @media (min-width: 1536px) { ... }
-    },
+      'lg': { 'max': '1024px' },
+      // => @media (max-width: 1023px) { ... }
+
+      'md': { 'max': '768px' },
+      // => @media (max-width: 767px) { ... }
+
+      'sm': { 'max': '640px' },
+      // => @media (max-width: 639px) { ... }
+      'xs': { 'max': '426px' }
+      // => mobile
+    }
   },
   plugins: [],
 };

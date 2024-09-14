@@ -22,12 +22,12 @@ const Navigation = ({ isAdmin }) => {
   window.addEventListener("scroll", navigationFixed)
 
   return (
-    <div className={`${fixed ? fixedNav : ""} navigation-wrapper `} >
+    <div className={`${fixed ? fixedNav : ""} navigation-wrapper  `} >
       <div className={` d-flex bg-primary ${isAdmin ? 'justify-start' : 'justify-center'}`}>
-        <div className='p-3'>
+        <div className='p-3 '>
           <NavLink
             className={({ isActive, isPending }) =>
-              isPending ? "text-white" : isActive ? "text-white bg-red-500 p-3" : ""
+              isPending ? "text-white" : isActive ? "text-white bg-red-500 p-3 xs:p-0 xs:text-[10px]" : "xs:text-[13px]"
             }
             style={{ textDecoration: "none", color: "white" }}
             to={configRouter.home}
@@ -43,9 +43,7 @@ const Navigation = ({ isAdmin }) => {
                 key={item.code}
               >
                 <NavLink
-                  className={({ isActive, isPending }) =>
-                    isPending ? "text-white" : isActive ? "text-white bg-red-500 p-3" : ""
-                  }
+                  className={({ isActive, isPending }) => isPending ? "text-white xs:p-0 xs:text-[10px]" : isActive ? "text-white bg-red-500 p-3 xs:p-0 xs:text-[10px]" : "xs:text-[13px]"}
                   to={`${formatVietnameseToString(item.value)}`}
                   style={{ textDecoration: "none", color: "white" }}
                 >

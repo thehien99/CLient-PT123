@@ -13,15 +13,15 @@ const ItemNewPost = ({ title, time, price, image, id }) => {
 
   return (
     <Link to={`/${configRouter.detail}/${formatVietnameseToString(title.replaceAll("/", ""))}/${id}`}
-      className=" w-full flex items-center gap-2 py-2 border-b border-gray-300 no-underline md:flex-col">
+      className=" w-full flex items-center gap-2 py-2 border-b border-gray-300 no-underline md:flex-col lg:flex-col">
       <img
-        className="w-[65px] h-[65px] object-cover flex-none rounded-md md:w-full md:h-full"
+        className="w-[65px] h-[65px] object-cover flex-none rounded-md md:w-full md:h-full lg:w-full"
         src={image[0]}
         alt="anh"
       />
       <div className="w-full flex-auto flex flex-col justify-between gap-1">
         <span className=" text-red-600 text-[14px]">{`${title?.slice(0, 30)}...`}</span>
-        <div className=" flex items-center justify-between w-full">
+        <div className=" flex items-center justify-between w-full lg:flex-col lg:items-start">
           <span className="text-sm font-medium text-green-500">{price}</span>
           <span className="text-sm text-gray-300">{formatTime(time)}</span>
         </div>

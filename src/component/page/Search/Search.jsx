@@ -73,8 +73,8 @@ const Search = () => {
 
    return (
       <>
-         <div className="container my-3 bg-[#febb02] rounded-lg  flex items-center justify-evenly cursor-pointer xs:flex-col  ">
-            <span className="w-full" onClick={() => handleIsShowModal(dataHome, 'category', 'Tìm tất cả', 'Tìm tất cả')}>
+         <div className="container xs:flex my-3 bg-[#febb02] rounded-lg  flex items-center justify-evenly cursor-pointer">
+            <span className="w-full xs:hidden" onClick={() => handleIsShowModal(dataHome, 'category', 'Tìm tất cả', 'Tìm tất cả')}>
                <SearchItem
                   text={queries.category}
                   iconAfter={<MdOutlineMapsHomeWork />}
@@ -90,7 +90,7 @@ const Search = () => {
                   defaultText="Toàn quốc"
                />
             </span>
-            <span className="w-full" onClick={() => handleIsShowModal(Price, "price", "Chọn Giá", 'Chọn Giá')}>
+            <span className="w-full xs:hidden" onClick={() => handleIsShowModal(Price, "price", "Chọn Giá", 'Chọn Giá')}>
                <SearchItem
                   text={queries.price}
                   iconbefore={<GrFormNext />}
@@ -98,7 +98,7 @@ const Search = () => {
                   defaultText="Chọn Giá"
                />
             </span>
-            <span className="w-full" onClick={() => handleIsShowModal(Acrea, "area", "Chọn Diện Tích", "Chọn Diện Tích")}>
+            <span className="w-full xs:hidden" onClick={() => handleIsShowModal(Acrea, "area", "Chọn Diện Tích", "Chọn Diện Tích")}>
                <SearchItem
                   text={queries.area}
                   iconAfter={<RiCrop2Line />}
@@ -107,11 +107,10 @@ const Search = () => {
                />
             </span>
             <button
-               className="w-[80%] p-2 bg-[lightskyblue] rounded-md flex justify-center items-center  "
+               className="w-fit lg:ms-2 p-2 bg-[lightskyblue] rounded-md flex justify-center items-center  "
                onClick={handleSearch}
             >
                <GrSearch style={{ marginBottom: "2px" }} />
-               Tìm Kiếm
             </button>
          </div>
          {isShowModal && <Modal

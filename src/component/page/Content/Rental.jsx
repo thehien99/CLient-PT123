@@ -28,10 +28,10 @@ const Rental = () => {
       <span>{categoryCurrent?.subheader}</span>
       <div className="container md:mt-4">
         <div className="row">
-          <div className="list_product col-8">
+          <div className="list_product col-12 col-md-8 col-lg-9">
             <List categoryCode={categoryCode} />
           </div>
-          <div className="sidebar col-4" style={{ borderStyle: "dotted" }}>
+          <div className="sidebar col-12 col-md-4 col-lg-3 xs:hidden">
             <ItemSideBar
               tilte='Xem theo giá'
               content={Price}

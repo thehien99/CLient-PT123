@@ -35,7 +35,7 @@ const Item = ({ image, title, star, address, description, attributes, sellers, i
         </span>
       </Link>
       <div className="col-lg-7 col-md-12 ">
-        <div>
+        <div className="lg:mt-5">
           <Link to="/" className="text-decoration-none text-danger">
             <span className="flex">
               {handleStar(+star).length > 0 && handleStar(+star).map((star, index) => {
@@ -47,7 +47,7 @@ const Item = ({ image, title, star, address, description, attributes, sellers, i
             {title}
           </Link>
         </div>
-        <div className="mt-2 d-flex justify-content-between md:flex-col">
+        <div className="mt-2 xl:flex-col xl:gap-2 flex justify-content-between md:flex-col">
           <span className="text-green font-medium w-3/6">
             {attributes.price}
           </span>
@@ -58,7 +58,7 @@ const Item = ({ image, title, star, address, description, attributes, sellers, i
         <div className="mt-3">
           <p className="text-[#8a8d91] text-base max-w-lg text-ellipsis leading-6 line-clamp-3">{description}</p>
         </div>
-        <div className="flex justify-between items-center ">
+        <div className="flex justify-between items-center xl:flex-col xl:items-start xl:gap-2 ">
           <div>
             <span className="text-[#8a8d91]">{sellers.name}</span>
           </div>

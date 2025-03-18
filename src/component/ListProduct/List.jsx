@@ -30,17 +30,19 @@ const List = ({ categoryCode }) => {
       if (sort === 1) searchParamsObject.order = ["createdAt", "DESC"]
       dispatch(postLimit(searchParamsObject))
    }, [searchParams, categoryCode, sort]);
+
+
    return (
       <div className="border border-solid border-[#dedede] rounded-md w-full">
          <div div className="ms-3 mt-3 mb-4">
-            <h4> Danh Sách Tin Đăng</h4>
+            <h4 className="xs:hidden"> Danh Sách Tin Đăng</h4>
          </div>
          <div className="ms-3">
             <span>Sắp xếp:</span>
-            <span onClick={() => setSort(0)} className={`ms-2 font-normal border border-[#dedede] rounded-md p-1 cursor-pointer ${sort === 0 && "underline bg-red-600 text-white"} `}>
+            <span onClick={() => setSort(0)} className={`ms-2 font-normal border border-[#dedede] rounded-md p-1 cursor-pointer ${sort === 0 && "no-underline bg-red-600 text-white"} `}>
                Mặc Định
             </span>
-            <span onClick={() => setSort(1)} className={` ms-1 font-normal border border-[#dedede] rounded-md p-1 cursor-pointer  ${sort === 1 && "underline bg-red-600 text-white"}`}>
+            <span onClick={() => setSort(1)} className={` ms-1 font-normal border border-[#dedede] rounded-md p-1 cursor-pointer  ${sort === 1 && "no-underline bg-red-600 text-white"}`}>
                Mới Nhất
             </span>
          </div >

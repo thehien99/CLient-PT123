@@ -17,10 +17,10 @@ const SearchDetails = () => {
       <h2 className="mt-5">{location.state?.titleTextSearch}</h2>
       <span>{`${location.state?.titleTextSearch},phòng mới xây, chính chủ gần chợ, trường học, siêu thị, cửa hàng tiện lợi, khu an ninh.`}</span>
       <div className="row mt-4">
-        <div className="list_product col-8">
+        <div className="list_product col-12 col-md-8 col-lg-9">
           <List />
         </div>
-        <div className="sidebar col-4" style={{ borderStyle: "dotted" }}>
+        <div className="sidebar col-12 col-md-4 col-lg-3 xs:hidden">
           <ItemSideBar
             tilte='Xem theo giá'
             content={dataPrice}

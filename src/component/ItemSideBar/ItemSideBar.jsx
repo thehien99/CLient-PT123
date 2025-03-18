@@ -30,8 +30,9 @@ const ItemSideBar = ({ content, tilte, isDouble, type }) => {
 
   return (
     <div className="border-2 mb-4 border-solid p-4 rounded-md bg-white w-full">
-      <p className="text-lg font-semibold mb-4">{tilte}</p>
-      {!isDouble && <div className=" flex flex-col gap-2">
+      <p className="text-lg font-semibold mb-4 lg:text-[17px]">{tilte}</p>
+
+      {!isDouble && <div className=" flex flex-col gap-2 md:w-full">
         {content?.length > 0 && content.map((item) => {
           return (
             <Link
@@ -39,30 +40,28 @@ const ItemSideBar = ({ content, tilte, isDouble, type }) => {
               key={item.code}
               className="flex gap-2 items-center cursor-pointer hover:text-orange-600 border-b border-gray-200 pb-1 border-dashed no-underline	text-black"
             >
-              <GrFormNext size={10} color='#ccc' />
-              <span> {item.value} </span>
+              <span className="md:text-[14px]"> {item.value} </span>
             </Link>
           )
         })}
       </div>
       }
-      {isDouble && <div className='flex flex-col gap-2'>
+
+      {isDouble && <div className='flex flex-col gap-2 md:block'>
         {content?.length > 0 && formatContent(content).map((item, index) => {
           return (
             <div key={index} >
-              <div className=' flex items-center justify-around'>
+              <div className='lg:gap-8 flex items-center justify-around md:block md:text-[14px] md:py-2'>
                 <div
                   onClick={() => handleFilterPost(item.left.code)}
                   className='flex flex-1 gap-2 items-center cursor-pointer hover:text-orange-600 border-b border-gray-200 pb-1 border-dashed'
                 >
-                  <GrFormNext size={10} color='#ccc' />
                   <span>{item.left.value}</span>
                 </div>
                 <div
                   className='flex flex-1 gap-2 items-center cursor-pointer hover:text-orange-600 border-b border-gray-200 pb-1 border-dashed'
                   onClick={() => handleFilterPost(item.right.code)}
                 >
-                  <GrFormNext size={10} color='#ccc' />
                   <span>{item.right.value}</span>
                 </div>
               </div>

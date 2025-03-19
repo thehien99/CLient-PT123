@@ -22,7 +22,7 @@ const HomePage = () => {
           </div>
 
           {/* Sidebar (ẩn trên màn hình di động và chỉ hiển thị trên md và lg) */}
-          <div className="sidebar col-12 col-md-4 col-lg-3 xs:hidden">
+          <div className="sidebar col-12 col-md-4 col-lg-3 xs:hidden md:hidden">
             <ItemSideBar content={dataHome} tilte='Danh sách cho thuê' />
             <ItemSideBar
               tilte='Xem theo giá'

@@ -9,17 +9,18 @@ const Contact = () => {
       <div className="call text-center mt-3">
         {dataContact.call}
       </div>
-      <div className="contact mt-3  flex justify-content-center">
-        {dataContact.contact.map((item, index) => {
-          return (
-            <div key={index} className="me-5 text-center">
-              <h4>{item.support}</h4>
-              <p>{item.phone}</p>
-              <p>{item.zalo}</p>
-            </div>
-          )
-        })}
+
+      <div className="contact mt-3 flex justify-center items-center gap-5 md:w-full">
+        <div className="flex flex-col">
+          <span className="font-bold text-xl">Hỗ trợ đăng tin</span>
+          <span>Sdt: 0587691822</span>
+        </div>
+        <div className="flex flex-col">
+          <span className="font-bold text-xl">Phản ánh khiếu nại</span>
+          <span>Sdt: 12345679</span>
+        </div>
       </div>
+
       <button className="bg-danger p-2 mt-3 text-white fw-bold">
         Gửi Liên Hệ
       </button>

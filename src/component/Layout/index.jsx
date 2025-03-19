@@ -6,7 +6,7 @@ import { Outlet, useLocation } from "react-router-dom"
 import Search from "../page/Search/Search"
 import { useSelector } from "react-redux"
 const Layout = () => {
-  const fixedHeader = 'fixed top-0 left-0 right-0 text-center z-10 scrollY-smooth bg-white'
+  const fixedHeader = 'fixed top-0 left-0 right-0 text-center z-10 scrollY-smooth bg-white z-10'
   const isLogin = useSelector(state => state.auth.isLogin)
   const [fixed, setFixed] = useState(false)
   const listScrollRef = useRef()
@@ -29,7 +29,7 @@ const Layout = () => {
     <div ref={listScrollRef}>
       <div className="home relative">
         <div>
-          <div className={`${fixed ? fixedHeader : ''}`}>
+          <div className={`${fixed ? fixedHeader : ''} xs:shadow-2xl md:shadow-2xl`}>
             <Header />
           </div>
           <Navigation />

@@ -33,19 +33,18 @@ const List = ({ categoryCode }) => {
 
 
    return (
-      <div className="border border-solid border-[#dedede] rounded-md w-full">
-         <div div className="ms-3 mt-3 mb-4">
-            <h4 className="xs:hidden"> Danh Sách Tin Đăng</h4>
+      <div className="w-full">
+         <div className="mt-3">
+            <div className="">
+               <span onClick={() => setSort(0)} className={`ms-2 font-normal border border-[#dedede] rounded-md p-1 cursor-pointer ${sort === 0 && "no-underline bg-red-600 text-white"} `}>
+                  Mặc Định
+               </span>
+               <span onClick={() => setSort(1)} className={` ms-1 font-normal border border-[#dedede] rounded-md p-1 cursor-pointer  ${sort === 1 && "no-underline bg-red-600 text-white"}`}>
+                  Mới Nhất
+               </span>
+            </div >
          </div>
-         <div className="ms-3">
-            <span>Sắp xếp:</span>
-            <span onClick={() => setSort(0)} className={`ms-2 font-normal border border-[#dedede] rounded-md p-1 cursor-pointer ${sort === 0 && "no-underline bg-red-600 text-white"} `}>
-               Mặc Định
-            </span>
-            <span onClick={() => setSort(1)} className={` ms-1 font-normal border border-[#dedede] rounded-md p-1 cursor-pointer  ${sort === 1 && "no-underline bg-red-600 text-white"}`}>
-               Mới Nhất
-            </span>
-         </div >
+
          <div className="w-full mt-4">
             {post?.length > 0 &&
                post.map((item) => {

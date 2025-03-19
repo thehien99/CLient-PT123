@@ -85,9 +85,23 @@ button.slick-next {
     }
 }
 
+@media (max-width:511px) {
+    .search_items span {
+        font-size: 10px;
+    }
+}
+
+
 @media (max-width:496px) {
     .search_items span {
         font-size: 12px;
+    }
+}
+
+
+@media (max-width:491px) {
+    .search_items span {
+        font-size: 10px;
     }
 }
 
@@ -103,9 +117,21 @@ button.slick-next {
     }
 }
 
+@media (max-width:453px) {
+    .search_items span {
+        font-size: 9px;
+    }
+}
+
 @media (max-width:437px) {
     .search_items span {
         font-size: 9px;
+    }
+}
+
+@media (max-width:433px) {
+    .search_items span {
+        font-size: 8px;
     }
 }
 

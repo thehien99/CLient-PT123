@@ -78,7 +78,11 @@ export default {
 			},
 			xs: {
 				max: '426px'
+			},
+			sx: {
+				max: '415px'
 			}
+
 		}
 	},
 	plugins: [require("tailwindcss-animate")],

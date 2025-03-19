@@ -61,7 +61,7 @@ const Header = () => {
       document.body.style.overflow = 'hidden'; // Tắt cuộn trang
       const overlay = document.createElement('div');
       overlay.id = 'menuOverlay';
-      overlay.classList.add('fixed', 'top-0', 'left-0', 'w-full', 'h-full', 'bg-gray-800', 'opacity-50', 'z-30');
+      overlay.classList.add('fixed', 'top-0', 'left-0', 'w-full', 'h-full', 'bg-gray-800', 'opacity-50');
       document.body.appendChild(overlay);
 
       // Lắng nghe sự kiện click bên ngoài để đóng menu
@@ -84,7 +84,7 @@ const Header = () => {
   }, [isShowMenuMobile]);
 
   return (
-    <div id="menuDropdown" className="container xs:w-full xs:shadow-2xl h-16 md:shadow-2xl">
+    <div id="menuDropdown" className="container xs:w-full h-16">
       <div className="header">
         <div className="flex justify-around xs:justify-between md:justify-between items-center h-14">
           <NavLink to={'/'} className="md:text-[15px] xs:text-xl xs:text-red-400 no-underline">Phongtro123.com!</NavLink>
@@ -100,7 +100,7 @@ const Header = () => {
           <div
             className={`menu-responsive  xs:w-[95%] h-screen z-40 absolute top-0 right-0 bg-white transform transition-all duration-75 ease-out ${isShowMenuMobile ? 'translate-x-0' : 'translate-x-[100%]'}`}
           >
-            <div className="flex justify-between items-center px-4 py-4 bg-white shadow-2xl">
+            <div className="flex justify-between items-center px-3 py-3 bg-white shadow-2xl">
               <div className="flex flex-col text-xs">
                 <span>PhongTro123.com</span>
                 <span>Kênh thông tin số 1 tại việt nam</span>

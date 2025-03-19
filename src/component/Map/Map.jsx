@@ -24,7 +24,7 @@ const Map = ({ address }) => {
   }, [address])
   return (
     <div className="w-full h-[300px] pe-3 relative">
-      {address && <div className="bg-white shadow-md p-4 max-w-[300px] text-sm absolute z-10 top-5 left-5 ">
+      {address && <div className="bg-white shadow-md p-4 max-w-[300px] text-sm absolute z-5 top-5 left-5 ">
         {address}
       </div>}
       <GoogleMapReact

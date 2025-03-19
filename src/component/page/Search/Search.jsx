@@ -72,8 +72,8 @@ const Search = () => {
    }
 
    return (
-      <>
-         <div className="container xs:flex my-3 bg-[#febb02] rounded-lg  flex items-center justify-evenly cursor-pointer">
+      <div className="xs:px-3 md:px-5">
+         <div className="container search xs:flex my-3 bg-[#febb02] rounded-lg  flex items-center justify-evenly cursor-pointer">
             <span className="w-full xs:hidden" onClick={() => handleIsShowModal(dataHome, 'category', 'Tìm tất cả', 'Tìm tất cả')}>
                <SearchItem
                   text={queries.category}
@@ -124,7 +124,7 @@ const Search = () => {
             header={header}
          />
          }
-      </>
+      </div>
    );
 };
 

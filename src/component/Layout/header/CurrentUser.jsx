@@ -11,9 +11,10 @@ const CurrentUser = () => {
       </div>
       <div className="flex flex-col">
         <span className="text-zinc-950 font-bold">Xin Chào, {currentUser?.name}</span>
-        <span className="font-medium">Mã Tài Khoản: {"      "}
+        <span className="md:hidden xs:hidden font-medium">Mã Tài Khoản: {"      "}
           {`${currentUser?.id.slice(0, 4)}`}
         </span>
+        <span className="hidden md:block xs:block">Thông tin tài khoản</span>
       </div>
     </div>
   )

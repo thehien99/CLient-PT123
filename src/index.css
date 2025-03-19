@@ -85,10 +85,33 @@ button.slick-next {
     }
 }
 
+@media (max-width:496px) {
+    .search_items span {
+        font-size: 12px;
+    }
+}
+
+@media (max-width:476px) {
+    .search_items span {
+        font-size: 10px;
+    }
+}
+
+@media (max-width:457px) {
+    .search_items span {
+        font-size: 10px;
+    }
+}
+
+@media (max-width:437px) {
+    .search_items span {
+        font-size: 9px;
+    }
+}
 
 
 @layer base {
-  :root {
+    :root {
         --background: 0 0% 100%;
         --foreground: 224 71.4% 4.1%;
         --card: 0 0% 100%;
@@ -115,7 +138,8 @@ button.slick-next {
         --chart-5: 27 87% 67%;
         --radius: 0.5rem;
     }
-  .dark {
+
+    .dark {
         --background: 224 71.4% 4.1%;
         --foreground: 210 20% 98%;
         --card: 224 71.4% 4.1%;
@@ -146,10 +170,11 @@ button.slick-next {
 
 
 @layer base {
-  * {
-    @apply border-border;
+    * {
+        @apply border-border;
     }
-  body {
-    @apply bg-background text-foreground;
+
+    body {
+        @apply bg-background text-foreground;
     }
 }

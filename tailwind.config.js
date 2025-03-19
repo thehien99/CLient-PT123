@@ -71,7 +71,7 @@ export default {
 				max: '991px'
 			},
 			md: {
-				max: '768px'
+				max: '769px'
 			},
 			sm: {
 				max: '640px'

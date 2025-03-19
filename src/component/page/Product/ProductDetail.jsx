@@ -36,14 +36,14 @@ const ProductDetail = () => {
     }, { state: { titleTextSearch } })
   }
   return (
-    <div className="w-full h-full flex gap-4 mt-7 xs:flex xs:flex-col">
-      <div className="w-3/5 xs:w-full bg-[#fff] border xs:border-0 rounded-md border-[#dedede]">
+    <div className="w-full h-full flex gap-4 mt-7 xs:flex-col md:flex-col">
+      <div className="w-3/5 xs:w-full md:w-full bg-[#fff] rounded-md border-[#dedede]">
         <SilderSlick
           image={post?.length > 0 && JSON.parse(post[0]?.images?.image)}
         />
         <div>
-          <header className="p-3 xs:border-2 xs:shadow-xl xs:mt-3">
-            <h4 className="flex xs:flex-col">
+          <header className="p-3 border-2 shadow-xl mt-2">
+            <h4 className="flex xs:flex-col md:flex-col">
               <span className="flex">
                 {post?.length > 0 && handleStar(+post[0]?.star)?.map((star, index) => {
                   return (
@@ -65,11 +65,11 @@ const ProductDetail = () => {
               </span>
             </p>
             <address className="flex items-center font-medium mt-3">
-              <MdLocationOn className="me-1 xs:hidden" color="blue" />
+              <MdLocationOn className="me-1 xs:hidden md:hidden" color="blue" />
               {post?.length > 0 && post[0]?.address}
             </address>
             <div className="flex" >
-              <div className="flex items-center text-2xl xs:text-xs font-bold text-green-500">
+              <div className="flex items-center text-2xl xs:text-xs font-bold  text-green-500 md:text-[15px]">
                 <i className="me-1 xs:hidden"><GiMoneyStack color="#ccc" /></i>
                 {post?.length > 0 && post[0]?.attributes?.price}
               </div>
@@ -88,7 +88,7 @@ const ProductDetail = () => {
             </div>
           </header>
 
-          <div className="xs:shadow-xl xs:border-2 xs:mt-3">
+          <div className="border-2 mt-3 shadow-xl">
             <section className="mt-7 ps-4">
               <div>
                 <h4>Thông tin mô tả:</h4>
@@ -171,7 +171,7 @@ const ProductDetail = () => {
             </section>
           </div>
 
-          <div className="xs:border-2 xs:shadow-xl xs:mt-3">
+          <div className="border-2 shadow-xl mt-3">
             <section className="mt-7 ps-4">
               <div>
                 <h3>Bản đồ</h3>
@@ -189,7 +189,7 @@ const ProductDetail = () => {
 
         </div >
       </div>
-      <div className="w-1/4 xs:w-full ">
+      <div className="w-1/4 xs:w-full md:w-full ">
         <div>
           <span className="hidden xs:block text-2xl mb-2">Thông tin liên hệ
           </span>

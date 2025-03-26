@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllCategory } from "../../../redux/actions/categoryAction";
 const fixedNav = 'fixed top-0 left-0 right-0 text-center z-10 scrollY-smooth'
 
-const Navigation = ({ isAdmin }) => {
+const Navigation = ({ isAdmin, admin }) => {
 
   const cateData = useSelector((state) => state.category.categoryData.response)
   const dispatch = useDispatch()

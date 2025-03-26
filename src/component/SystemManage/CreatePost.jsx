@@ -12,12 +12,13 @@ import validate from "../../utils/validatefield";
 import { createPost, updatePost } from "../../service/Post/post";
 import { clearEditPost } from "../../redux/actions/postActions";
 import Map from "../Map/Map";
+import { IoMdClose } from "react-icons/io";
 
 
 
 const { FcCamera, RiDeleteBin5Line } = icons
 
-const CreatePost = ({ isEdit }) => {
+const CreatePost = ({ isEdit, setIsEdit }) => {
   const dataEdit = useSelector(state => state.post.postEdit)
   const [payload, setPayload] = useState({
     categoryCode: dataEdit?.categoryCode || "",
@@ -32,6 +33,7 @@ const CreatePost = ({ isEdit }) => {
     target: dataEdit?.overviews?.target || "",
     province: dataEdit?.province || "",
   })
+
   const [image, setViewImage] = useState([])
   const [invalids, setInValids] = useState([])
   const [isShowLoading, setIsShowLoading] = useState(false)
@@ -40,6 +42,7 @@ const CreatePost = ({ isEdit }) => {
   const currentUser = useSelector(state => state.user.data.response)
   const cateData = useSelector((state) => state.category.categoryData.response)
   const dispatch = useDispatch()
+
   useEffect(() => {
     let image = dataEdit?.images?.image && JSON.parse(dataEdit?.images?.image)
     image && setViewImage(image)
@@ -134,66 +137,78 @@ const CreatePost = ({ isEdit }) => {
     }),
       setViewImage([])
   }
+
+
   return (
-    <div className="ms-2 overflow-y-hidden">
-      <h3>{isEdit ? "Chỉnh sửa tin đăng" : "Đăng tin mới"}</h3>
-      <hr />
-      <div className="flex gap-4">
-        <div className="flex flex-auto flex-col gap-14">
-          <Address invalids={invalids} setInValids={setInValids} payload={payload} setPayload={setPayload} />
-          <Overview invalids={invalids} setInValids={setInValids} payload={payload} setPayload={setPayload} />
-          <div>
-            <h4>Hình Ảnh</h4>
-            <small className="font-medium">Cập nhật hình ảnh sẽ cho thuê nhanh hơn</small>
-            <div className="w-full  ">
-              <label className=" cursor-pointer flex justify-center items-center w-full h-[200px] border-dashed border-2 border-sky-500"
-                htmlFor="file">
-                {
-                  isShowLoading ? (
-                    <Loading />
-                  ) : (
-                    <span onFocus={() => setInValids([])}
-                    >
-                      <FcCamera size={80} />
-                      Thêm Ảnh
-                    </span>
-                  )
-                }
-              </label>
-              <div className="text-red-600">
-                <span>
-                  {invalids?.find(item => item.name === "images")?.msg}
-                </span>
-              </div>
-              <span className="font-bold">Ảnh đã được thêm</span>
-              <input
-                onChange={handleFiles}
-                type="file"
-                id="file"
-                multiple
-                hidden
-              />
-              <div className="flex ">
-                {
-                  image?.map((item) => {
-                    return (
-                      <div key={item} className="w-1/3 mt-3 relative ms-2 ">
-                        <img className="w-full h-full" value={payload.images} name="images" src={item} alt="" />
-                        <span onClick={() => handleDeleteImg(item)} className="absolute font-bold border bg-red-600 cursor-pointer p-1 rounded-md top-0 right-0 hover:bg-gray-500">
-                          <RiDeleteBin5Line color="white" />
-                        </span>
-                      </div>
+    <div className={` `}>
+      <div className="">
+        {isEdit && <div onClick={(e) => {
+          e.stopPropagation()
+          setIsEdit(false)
+        }} className="float-right me-4 mt-3">
+          <IoMdClose className="border-2 text-xl rounded-md text-red-500 font-bold" />
+        </div>}
+
+        <h3 className="p-3 text-center">{isEdit ? "Chỉnh sửa tin đăng" : "Đăng tin mới"}</h3>
+        <hr />
+        <div className="flex gap-4">
+          <div className="flex flex-auto flex-col gap-14">
+            <Address invalids={invalids} setInValids={setInValids} payload={payload} setPayload={setPayload} />
+            <Overview invalids={invalids} setInValids={setInValids} payload={payload} setPayload={setPayload} />
+            <div className="ms-2">
+              <h4>Hình Ảnh</h4>
+              <small className="font-medium">Cập nhật hình ảnh sẽ cho thuê nhanh hơn</small>
+              <div className="w-full  ">
+                <label className=" cursor-pointer flex justify-center items-center w-full h-[200px] border-dashed border-2 border-sky-500"
+                  htmlFor="file">
+                  {
+                    isShowLoading ? (
+                      <Loading />
+                    ) : (
+                      <span onFocus={() => setInValids([])}
+                      >
+                        <FcCamera size={80} />
+                        Thêm Ảnh
+                      </span>
                     )
-                  })
-                }</div>
+                  }
+                </label>
+                <div className="text-red-600">
+                  <span>
+                    {invalids?.find(item => item.name === "images")?.msg}
+                  </span>
+                </div>
+                <span className="font-bold">Ảnh đã được thêm</span>
+                <input
+                  onChange={handleFiles}
+                  type="file"
+                  id="file"
+                  multiple
+                  hidden
+                />
+                <div className="flex ">
+                  {
+                    image?.map((item) => {
+                      return (
+                        <div key={item} className="w-1/3 mt-3 relative ms-2 ">
+                          <img className="w-full h-full" value={payload.images} name="images" src={item} alt="" />
+                          <span onClick={() => handleDeleteImg(item)} className="absolute font-bold border bg-red-600 cursor-pointer p-1 rounded-md top-0 right-0 hover:bg-gray-500">
+                            <RiDeleteBin5Line color="white" />
+                          </span>
+                        </div>
+                      )
+                    })
+                  }</div>
+              </div>
             </div>
+            <ButtonFrom onClick={handleSubmit} text={isEdit ? 'Cập nhật tin' : 'Tạo tin mới'} textColor="text-white" bgColor="bg-green-600" />
           </div>
-          <ButtonFrom onClick={handleSubmit} text={isEdit ? 'Cập nhật tin' : 'Tạo tin mới'} textColor="text-white" bgColor="bg-green-600" />
-        </div>
-        <div className="w-[50%] flex-none">
+          {/* <div className="w-[50%] flex-none">
           <Map address={payload?.address} />
+        </div> */}
         </div>
       </div>
+
     </div >
   )
 };

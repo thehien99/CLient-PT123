@@ -43,6 +43,26 @@ button.slick-next {
     border-radius: 100%;
 }
 
+
+@media(max-width:1007px) {
+    .content_admin {
+        padding: 0px;
+    }
+
+    .address_admin {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+    }
+}
+
+@media(max-width:1003px) {
+    .sideBar_admin {
+        font-size: 15px;
+    }
+}
+
 @media (max-width:752px) {
     .navigation-wrapper {
         font-size: 15px;

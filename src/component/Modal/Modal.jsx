@@ -13,6 +13,8 @@ const Modal = ({
   defaultText,
   header
 }) => {
+
+
   const [min, setMin] = useState(
     name === "price" && arrMinMax?.priceArr
       ? arrMinMax?.priceArr[0]
@@ -104,6 +106,8 @@ const Modal = ({
     )
   }
 
+
+  console.log(content)
   return (
     <div onClick={(e) => { setIsShowModal(false) }}
       className="fixed z-10 bg-overlay-30 top-0 left-0 right-0 bottom-0 flex justify-center items-center "
@@ -125,7 +129,7 @@ const Modal = ({
           </div>
           <hr />
         </div>
-        {(name === "category" || name === "province") && (
+        {(name === "category") && (
           <div className={`flex flex-col ps-2 ${name === "province" && 'h-[500px] overflow-y-scroll'} `}>
             <span className="p-2 cursor-pointer" style={{ borderBottom: "1px solid #ccc" }}>
               <input
@@ -153,6 +157,36 @@ const Modal = ({
             })}
           </div>
         )}
+
+        {(name === "province") && (
+          <div className={`flex flex-col ps-2 ${name === "province" && 'h-[500px] overflow-y-scroll'} `}>
+            <span className="p-2 cursor-pointer" style={{ borderBottom: "1px solid #ccc" }}>
+              <input
+                type="radio"
+                name={name}
+                id='default'
+                value={defaultText || ''}
+                checked={!queries[`${name}Code`] ? true : false}
+                onChange={(e) => handleSubmitModal(e, { [name]: defaultText, [`${name}Code`]: null })} />
+              <label htmlFor='default' className="ms-1">{defaultText}</label>
+            </span>
+            {content?.map((item) => {
+              return (
+                <span key={item.code} className="p-2 cursor-pointer " style={{ borderBottom: "1px solid #ccc" }}>
+                  <input
+                    type="radio"
+                    name={name}
+                    id={item.code}
+                    value={item.value}
+                    checked={item.code === queries[`${name}Code`] ? true : false}
+                    onChange={(e) => handleSubmitModal(e, { [name]: item.value, [`${name}Code`]: item.code })} />
+                  <label htmlFor={item.code} className="ms-1">{item.value}</label>
+                </span>
+              )
+            })}
+          </div>
+        )}
+
 
         {(name === "price" || name === "area") && (
           <div className=" flex flex-col overflow-x-hidden">

@@ -8,8 +8,10 @@ const UpdatePost = ({ setIsEdit }) => {
         setIsEdit(false)
       }}
     >
-      <div className="bg-white max-w-1100 w-full overflow-y-auto" onClick={e => e.stopPropagation()}>
-        <CreatePost isEdit />
+      <div className="overflow-y-auto p-3 ">
+        <div className="bg-white max-w-1100 w-full sm:w-full  sm:right-[9.5rem] sm:p-3" onClick={e => e.stopPropagation()}>
+          <CreatePost isEdit setIsEdit={setIsEdit} />
+        </div>
       </div>
     </div>
   )

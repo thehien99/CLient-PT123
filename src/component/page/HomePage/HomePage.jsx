@@ -17,12 +17,12 @@ const HomePage = () => {
         {!isLogin && <Search />}
         <div className="row">
           {/* List Product */}
-          <div className="list_product col-12 col-md-8 col-lg-9">
+          <div className="list_product col-12 col-md-12 col-lg-9">
             <List />
           </div>
 
           {/* Sidebar (ẩn trên màn hình di động và chỉ hiển thị trên md và lg) */}
-          <div className="sidebar col-12 col-md-4 col-lg-3 xs:hidden md:hidden">
+          <div className="sidebar col-12 col-md-12 col-lg-3 xs:hidden md:hidden">
             <ItemSideBar content={dataHome} tilte='Danh sách cho thuê' />
             <ItemSideBar
               tilte='Xem theo giá'

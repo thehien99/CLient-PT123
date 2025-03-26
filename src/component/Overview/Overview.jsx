@@ -13,7 +13,7 @@ const Overview = ({ payload, setPayload, invalids, setInValids }) => {
     { code: "Nữ", value: "Nữ" },
   ]
   return (
-    <div>
+    <div className="ms-2">
       <h4>Thông tin mô tả</h4>
       <div className="w-[50%]">
         <Select
@@ -35,7 +35,7 @@ const Overview = ({ payload, setPayload, invalids, setInValids }) => {
           label='Tiêu đề'
         />
       </div>
-      <div className="mt-4 font-bold">
+      <div className="mt-4 font-bold flex flex-col gap-2">
         <label htmlFor="desc">Nội dung mô tả</label>
         <textarea
           id="desc"

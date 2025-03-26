@@ -31,10 +31,10 @@ const Management = () => {
     }
   }
   return (
-    <div>
-      <div className="flex justify-between">
+    <div className="overflow-x-hidden">
+      <div className="flex justify-between md:flex-col md:w-fit md:gap-2">
         <h3>Quản lý bài đăng</h3>
-        <select onChange={(e) => handleStatus(+e.target.value)} className="border border-slate-950 cursor-pointer">
+        <select onChange={(e) => handleStatus(+e.target.value)} className="border-2 border-slate-950 cursor-pointer md:p-1">
           <option value="0">lọc theo trạng thái</option>
           <option value="1">Đang hoạt động</option>
           <option value="2">Đã hết hạn</option>

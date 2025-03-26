@@ -45,11 +45,11 @@ const EditAccount = () => {
     }
   }
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center md:items-start md:px-3 ">
       <h3 className="text-start w-full">Cập nhật thông tin cá nhân</h3>
       <div className="border border-black w-full h-full">
       </div>
-      <div className="w-[60%] flex flex-col gap-4">
+      <div className="w-[60%] md:w-full flex flex-col gap-4">
         <InPutAddress
           value={currentUser?.id?.slice(0, 20)} label="Mã thành viên"
           direction="flex-row" />
@@ -81,7 +81,7 @@ const EditAccount = () => {
           <label htmlFor="password" className="w-48 flex-none">Mật khẩu</label>
           <small className="text-blue-600">Đổi mật khẩu</small>
         </div>
-        <div className="w-full flex gap-4">
+        <div className="w-full flex gap-4 md:flex-col">
           <label className="w-48 flex-none" htmlFor="avatar">Ảnh đại diện</label>
           <div>
             <img className="w-20 h-20 rounded-full object-cover" src={payload.avatar || avatar} alt="Ảnh đại diện" />

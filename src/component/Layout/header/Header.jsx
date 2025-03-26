@@ -89,6 +89,7 @@ const Header = () => {
         <div className="flex justify-around xs:justify-between md:justify-between items-center h-14">
           <NavLink to={'/'} className="md:text-[15px] xs:text-xl xs:text-red-400 no-underline">Phongtro123.com!</NavLink>
 
+          {/*----- responsive menu mobile----- */}
           <div className="xs:block md:block hidden">
             <div className="flex gap-2" onClick={handleShowMenuMobile}>
               <IoMdMenu className="text-2xl" />
@@ -96,9 +97,8 @@ const Header = () => {
             </div>
           </div>
 
-          {/*----- responsive menu mobile----- */}
           <div
-            className={`menu-responsive  xs:w-[95%] h-screen z-40 absolute top-0 right-0 bg-white transform transition-all duration-75 ease-out ${isShowMenuMobile ? 'translate-x-0' : 'translate-x-[100%]'}`}
+            className={`menu-responsive xs:w-[95%] h-screen z-40 absolute top-0 right-0 bg-white transform transition-all duration-75 ease-out ${isShowMenuMobile ? 'translate-x-0' : 'translate-x-[100%]'}`}
           >
             <div className="flex justify-between items-center px-3 py-3 bg-white shadow-2xl">
               <div className="flex flex-col text-xs">
@@ -130,10 +130,7 @@ const Header = () => {
                         onClick={() => goLogin(true)}
                       />
                     </div>
-
                   </div>
-
-
                 </div>
               )}
 

@@ -7,7 +7,9 @@ import { getAllAcrea } from "./redux/actions/acreaActions";
 import { getAllProvince } from "./redux/actions/postActions";
 import { getCurrent } from "./redux/actions/userActions";
 
-// Lazy load components
+
+
+
 const Home = React.lazy(() => import("./component/page/Home/Home"));
 const HomePage = React.lazy(() => import("./component/page/HomePage/HomePage"));
 const Login = React.lazy(() => import("./component/page/Login/Login"));
@@ -21,27 +23,29 @@ const Management = React.lazy(() => import("./component/SystemManage/Management"
 const System = React.lazy(() => import("./component/SystemManage/System"));
 const ContactManage = React.lazy(() => import("./component/SystemManage/ContactManage"));
 
+
 function App() {
   const dispatch = useDispatch();
-  const isLogin = useSelector(state => state.auth.isLogin);
-
+  const isLogin = useSelector(state => state.auth.isLogin)
   useEffect(() => {
     setTimeout(() => {
-      isLogin && dispatch(getCurrent());
+      isLogin && dispatch(getCurrent)
     }, 1000);
-  }, [isLogin]);
-
+  }, [isLogin])
   useEffect(() => {
-    dispatch(getAllPrice());
-    dispatch(getAllAcrea());
-    dispatch(getAllProvince());
-  }, [dispatch]);
+    dispatch(getAllPrice)
+    dispatch(getAllAcrea)
+    dispatch(getAllProvince)
+  }, [])
+
+
+
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<p>Loading.....</p>}>
       <Routes>
         <Route path={configRouter.home} element={<Home />}>
-          <Route path="*" element={<HomePage />} />
+          <Route path='*' element={<HomePage />} />
           <Route path={configRouter.login} element={<Login />} />
           <Route path={configRouter.userManager} element={<UserManage />} />
           <Route path={configRouter.chothuecanho} element={<Rental />} />

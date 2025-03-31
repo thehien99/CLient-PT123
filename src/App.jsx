@@ -1,4 +1,4 @@
-import React, { useEffect, Suspense } from "react";
+import React, { useEffect, Suspense, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import configRouter from "./configRouter";
 import { useDispatch, useSelector } from "react-redux";
@@ -27,22 +27,32 @@ const ContactManage = React.lazy(() => import("./component/SystemManage/ContactM
 function App() {
   const dispatch = useDispatch();
   const isLogin = useSelector(state => state.auth.isLogin)
+  const [loading, setLoading] = useState(false)
   useEffect(() => {
     setTimeout(() => {
       isLogin && dispatch(getCurrent)
     }, 1000);
   }, [isLogin])
+
   useEffect(() => {
-    dispatch(getAllPrice)
-    dispatch(getAllAcrea)
-    dispatch(getAllProvince)
+    setLoading(true)
+    const fetch = async () => {
+      await dispatch(getAllPrice)
+      await dispatch(getAllAcrea)
+      await dispatch(getAllProvince)
+      setLoading(false)
+    }
+    fetch()
   }, [])
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
 
 
   return (
-    <Suspense fallback={<p>Loading.....</p>}>
+    <Suspense >
       <Routes>
         <Route path={configRouter.home} element={<Home />}>
           <Route path='*' element={<HomePage />} />

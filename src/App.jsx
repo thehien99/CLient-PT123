@@ -46,7 +46,7 @@ function App() {
   }, [])
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="text-center">Đang tải sản phẩm vui lòng đợi...</div>;
   }
 
 

@@ -22,13 +22,13 @@ import localStorage from "redux-persist/es/storage";
 const persitConfig = {
   key: "auth",
   storage: localStorage,
-  whitelist: ['auth'],
+  whitelist: ['isLogin'], // Chỉ lưu phần 'isLogin', không lưu 'token'
   stateReconciler: autoMergeLevel2,
 };
 const authConfig = {
   key: 'auth',
   storage: localStorage,
-  whitelist: ['token', 'isLogin']
+  blacklist: ['token', 'error', 'loading', 'message'], // Không lưu 'token' trong localStorage
 }
 
 

@@ -1,11 +1,11 @@
 import { apiLogin } from "../../service/Auth/apiLogin";
-import { loginFailed, loginSuccess, logoutSuccess, registerFailed, registerSuccess } from "../reducers/authReducer";
+import { loginSuccess, logoutSuccess, registerFailed, registerSuccess } from "../reducers/authReducer";
 import { apiRegister } from "../../service/Auth/apiRegister";
 
 export const userLogin = (payload) => async (dispatch) => {
   try {
     const res = await apiLogin(payload);
-    const token = res.token
+    const token = res.accessToken
     if (res.err === 0) {
       dispatch(loginSuccess(token))
     } else {

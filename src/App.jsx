@@ -6,7 +6,6 @@ import { getAllPrice } from "./redux/actions/priceActions";
 import { getAllAcrea } from "./redux/actions/acreaActions";
 import { getAllProvince } from "./redux/actions/postActions";
 import { getCurrent } from "./redux/actions/userActions";
-import { loginSuccess } from "./redux/reducers/authReducer";
 
 
 
@@ -33,15 +32,7 @@ function App() {
     }, 1000);
   }, [isLogin])
 
-  //auto đăng nhập
-  const checkToken = localStorage.getItem('token')
-  useEffect(() => {
-    if (checkToken) {
-      dispatch(loginSuccess({
-        accessToken: checkToken,
-      }))
-    }
-  }, [checkToken])
+
 
   useEffect(() => {
     setLoading(true)

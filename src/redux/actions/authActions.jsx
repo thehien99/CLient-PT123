@@ -1,5 +1,5 @@
 import { apiLogin } from "../../service/Auth/apiLogin";
-import { loginSuccess, logoutSuccess, registerFailed, registerSuccess } from "../reducers/authReducer";
+import { loginFailed, loginSuccess, logoutSuccess, registerFailed, registerSuccess } from "../reducers/authReducer";
 import { apiRegister } from "../../service/Auth/apiRegister";
 
 export const userLogin = (payload) => async (dispatch) => {
@@ -7,9 +7,9 @@ export const userLogin = (payload) => async (dispatch) => {
     const res = await apiLogin(payload);
     const token = res.accessToken
     if (res.err === 0) {
-      dispatch(loginSuccess(token))
-    } else {
-      dispatch(logoutSuccess())
+      dispatch(loginSuccess(JSON.stringify(token)))
+    } else if (res.err === 2) {
+      dispatch(loginFailed(res))
     }
   } catch (error) {
     dispatch(logoutSuccess())

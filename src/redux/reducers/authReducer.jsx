@@ -11,7 +11,7 @@ const authReducer = createSlice({
   reducers: {
     loginSuccess: (state, action) => {
       console.log(action.payload)
-      localStorage.setItem('token', action.payload)
+      localStorage.setItem('token', (action.payload))
       state.isLogin = !!action.payload
     },
     loginFailed: (state, action) => {

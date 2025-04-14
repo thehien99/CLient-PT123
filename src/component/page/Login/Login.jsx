@@ -10,6 +10,7 @@ const Login = () => {
   const location = useLocation()
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const msgAuth = useSelector(state => state.auth.message?.msg)
   const isLogin = useSelector(state => state.auth.isLogin)
   const [isRegister, setIsRegister] = useState(location.state?.flag)
   const [payload, setPayLoad] = useState({
@@ -41,6 +42,8 @@ const Login = () => {
         : dispatch(userLogin(payload))
     }
   }
+
+  console.log(invalids)
 
   return (
     <div className='w-full flex items-center justify-center'>
@@ -81,6 +84,7 @@ const Login = () => {
             onClick={handleSubmit}
           />
         </div>
+        {msgAuth && <i className="text-red-600 text-sm">{msgAuth}</i>}
         <div className="mt-7 flex items-center justify-between">
           {isRegister ? (
             <small>

@@ -9,7 +9,7 @@ const appAxios = axios.create({
 appAxios.interceptors.request.use(
   function (config) {
     // Làm gì đó trước khi request dược gửi đi
-    let token = localStorage.getItem('token')
+    let token = JSON.parse(JSON.stringify(localStorage.getItem('token')))
     if (token) {
       config.headers['Authorization'] = `Bearer ${token}`
     } else {
@@ -88,7 +88,7 @@ appAxios.interceptors.response.use(
 
         if (refreshError.response?.status === 403) {
           // Xử lý khi refresh token thất bại
-          localStorage.removeItem('persist:auth');
+          localStorage.removeItem('token');
           document.cookie = "refreshToken=; Max-Age=0; path=/;"; // Xoá refresh token trong cookies
           window.location.href = "/login"; // Đưa người dùng về trang đăng nhập
         }

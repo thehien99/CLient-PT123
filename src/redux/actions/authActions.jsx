@@ -7,7 +7,7 @@ export const userLogin = (payload) => async (dispatch) => {
     const res = await apiLogin(payload);
     const token = res.accessToken
     if (res.err === 0) {
-      dispatch(loginSuccess(JSON.stringify(token)))
+      dispatch(loginSuccess((token)))
     } else if (res.err === 2) {
       dispatch(loginFailed(res))
     }

@@ -21,18 +21,18 @@ const memuSidebar = [
     path: '/he-thong/sua-thong-tin-ca-nhan',
     icon: <BiUserPin />
   },
-  {
-    id: 5,
-    text: 'Liên hệ',
-    path: '/lien-he',
-    icon: <BiUserPin />
-  },
-  {
-    id: 6,
-    text: 'Lịch sử thanh toán',
-    path: '/he-thong/lich-su-thanh-toan',
-    icon: <MdOutlineWorkHistory />
-  },
+  // {
+  //   id: 5,
+  //   text: 'Liên hệ',
+  //   path: '/lien-he',
+  //   icon: <BiUserPin />
+  // },
+  // {
+  //   id: 6,
+  //   text: 'Lịch sử thanh toán',
+  //   path: '/he-thong/lich-su-thanh-toan',
+  //   icon: <MdOutlineWorkHistory />
+  // },
 
 ]
 

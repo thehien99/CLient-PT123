@@ -40,7 +40,7 @@ const Management = () => {
           <option value="2">Đã hết hạn</option>
         </select>
       </div>
-      <hr />
+      <div className="mt-3 p-[1px] bg-slate-600 border-2 w-full"> </div>
       <Table post={post} table={table} />
     </div >
   )

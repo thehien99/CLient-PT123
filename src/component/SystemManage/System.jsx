@@ -106,7 +106,7 @@ const System = () => {
 
 
 
-          <div className="content_admin py-3 sm:flex sm:mt-3">
+          <div className="content_admin w-full py-3 sm:ps-2 sm:mt-3">
             <Outlet />
           </div>
 

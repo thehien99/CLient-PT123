@@ -2,7 +2,7 @@ import React from "react";
 import CreatePost from "../SystemManage/CreatePost"
 const UpdatePost = ({ setIsEdit }) => {
   return (
-    <div className="absolute left-0 top-0 bg-overlay-7 flex justify-center w-full h-full"
+    <div className="absolute left-0 top-0 bg-overlay-7 flex justify-center w-full"
       onClick={(e) => {
         e.stopPropagation()
         setIsEdit(false)

@@ -9,9 +9,11 @@ import { logOut } from "../../redux/actions/authActions";
 const isACtiveStyle = 'hover:bg-gray-200 flex rounded-md items-center gap-2 py-2 mt-2 font-bold bg-gray-200 no-underline text-black '
 const noActiveStyle = 'hover:bg-gray-200 flex rounded-md items-center gap-2 py-2 mt-2 cursor-pointer no-underline text-black'
 const { AiOutlineLogout, FaArrowLeft, IoMdMenu } = icons
+
 const SideBar = () => {
   const dispatch = useDispatch()
   const currentUser = useSelector(state => state.user.data.response)
+
   return (
     <div className=" sideBar_admin px-2 mt-3 sm:hidden">
       <div className="w-[256px] sm:hidden">

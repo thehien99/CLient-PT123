@@ -3,6 +3,7 @@ import Select from "../SelectManage/Select";
 import { apiDistrics, apiProvince, apiWard } from "../../service/ApiProvince/ApiProvince";
 import { InPutAddress } from "../InputManage/InputAddress";
 import { useSelector } from "react-redux";
+import extractHouseNumber from "../../utils/convertAddress";
 
 const Address = ({ setPayload, invalids, setInValids, payload }) => {
   const [provinces, setProvinces] = useState([])
@@ -84,6 +85,9 @@ const Address = ({ setPayload, invalids, setInValids, payload }) => {
   const handleChange = (e) => {
     setNumberHome(e.target.value)
   }
+
+  const convertNumberHome = extractHouseNumber(dataEdit?.address)
+
   return (
     <div className="ms-2">
       <h2>Địa Chỉ Cho Thuê</h2>
@@ -107,12 +111,13 @@ const Address = ({ setPayload, invalids, setInValids, payload }) => {
           />
         </div>
         <div className="flex flex-col w-[90%] gap-3">
-          <div className="text-xl font-bold">Số Nhà
+          <div className="text-xl font-bold">
+            Số Nhà
           </div>
           <input
             className="border border-gray-400 w-full p-2 mt-2 rounded-md"
             type="text"
-            value={numberHome}
+            value={dataEdit ? convertNumberHome : numberHome}
             onChange={(e) => handleChange(e)}
           />
         </div>

@@ -89,7 +89,7 @@ const Address = ({ setPayload, invalids, setInValids, payload }) => {
   const convertNumberHome = extractHouseNumber(dataEdit?.address)
 
   return (
-    <div className="ms-2">
+    <div className="w-full">
       <h2>Địa Chỉ Cho Thuê</h2>
       <div className="flex flex-col gap-4">
         <div className="flex items-center gap-4 address_admin ">
@@ -97,7 +97,7 @@ const Address = ({ setPayload, invalids, setInValids, payload }) => {
           <Select invalids={invalids} setInValids={setInValids} resret={resret} type='district' value={district} setValue={setDistrict} options={districts} label={'Quận/Huyện'} />
           <Select invalids={invalids} setInValids={setInValids} resret={resret} type='ward' value={ward} setValue={setWard} options={wards} label={'Phường/Xã/Huyện'} />
         </div>
-        <div className="w-[90%]">
+        <div className="w-[90%] sm:w-full">
           <InPutAddress
             createPost='createPost'
             label={'Địa Chỉ Chính Xác'}
@@ -110,7 +110,7 @@ const Address = ({ setPayload, invalids, setInValids, payload }) => {
             }
           />
         </div>
-        <div className="flex flex-col w-[90%] gap-3">
+        <div className="flex flex-col w-[90%] sm:w-full gap-3">
           <div className="text-xl font-bold">
             Số Nhà
           </div>

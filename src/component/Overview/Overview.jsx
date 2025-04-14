@@ -13,7 +13,7 @@ const Overview = ({ payload, setPayload, invalids, setInValids }) => {
     { code: "Nữ", value: "Nữ" },
   ]
   return (
-    <div className="ms-2">
+    <div className="">
       <h4>Thông tin mô tả</h4>
       <div className="w-[50%]">
         <Select
@@ -25,7 +25,7 @@ const Overview = ({ payload, setPayload, invalids, setInValids }) => {
           label='Loại chuyên mục'
           options={cateData} />
       </div>
-      <div className="mt-10 w-[90%]">
+      <div className="mt-10 w-[90%] sm:w-full">
         <InputOverView
           invalids={invalids}
           setInValids={setInValids}
@@ -41,7 +41,7 @@ const Overview = ({ payload, setPayload, invalids, setInValids }) => {
           id="desc"
           cols="30"
           rows="10"
-          className="w-[90%] p-2 border outline-none border-gray-400"
+          className="w-[90%] sm:w-full p-2 border outline-none border-gray-400"
           value={payload.description}
           onChange={(e) =>
             setPayload((prev) =>
@@ -53,7 +53,7 @@ const Overview = ({ payload, setPayload, invalids, setInValids }) => {
       <div className="text-red-600">
         <small>{invalids?.find(item => item?.name === "description")?.msg}</small>
       </div>
-      <div className="mt-4 w-[50%]">
+      <div className="mt-4 w-[50%] sm:w-[60%]">
         <InPutAddress value={currentUser?.name} label='Thông tin liên hệ' />
         <InPutAddress value={currentUser?.phone} label='Điện thoại' />
         <InputOverView

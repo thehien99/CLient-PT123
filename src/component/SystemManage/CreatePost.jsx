@@ -140,12 +140,13 @@ const CreatePost = ({ isEdit, setIsEdit }) => {
 
 
   return (
-    <div className={` `}>
+    <div className={`w-full `}>
       <div className="">
         {isEdit && <div onClick={(e) => {
           e.stopPropagation()
           setIsEdit(false)
-        }} className="float-right me-4 mt-3">
+        }}
+          className="float-right me-4 mt-3">
           <IoMdClose className="border-2 text-xl rounded-md text-red-500 font-bold" />
         </div>}
 
@@ -155,7 +156,7 @@ const CreatePost = ({ isEdit, setIsEdit }) => {
           <div className="flex flex-auto flex-col gap-14">
             <Address invalids={invalids} setInValids={setInValids} payload={payload} setPayload={setPayload} />
             <Overview invalids={invalids} setInValids={setInValids} payload={payload} setPayload={setPayload} />
-            <div className="ms-2">
+            <div className="">
               <h4>Hình Ảnh</h4>
               <small className="font-medium">Cập nhật hình ảnh sẽ cho thuê nhanh hơn</small>
               <div className="w-full  ">

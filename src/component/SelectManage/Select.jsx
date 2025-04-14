@@ -6,6 +6,7 @@ const SelectAddress = ({ label, options, value, setValue, type, resret, name, in
     let addressValids = invalids?.find(item => item.name === "address")
     return `${addressValids ? addressValids.msg : ''}` || `${valid ? valid.msg : ''}`
   }
+
   return (
     <div className="flex flex-col  gap-2 mt-3">
       <label htmlFor="address" className="font-bold " >{label}</label>

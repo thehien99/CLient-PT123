@@ -1,6 +1,6 @@
 export const InPutAddress = ({ label, value, direction, editPhone, createPost }) => {
   return (
-    <div className={`flex ${direction ? direction : "flex-col gap-2"} md:justify-center ${createPost ? '' : 'md:items-center'} font-bold mt-3`}>
+    <div className={`flex ${direction ? direction : "flex-col gap-2"} ${createPost ? '' : ''} font-bold mt-3`}>
       <label className="w-48 flex-none" htmlFor="address-Exactly">{label}</label>
       <div className="flex-auto">
         <input type="text"
